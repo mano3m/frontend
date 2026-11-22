@@ -17,6 +17,7 @@ export type ShortcutItem = CustomShortcutItem | SummaryShortcutItem;
 export const DEFAULT_SUMMARY_KEYS = [
   "light",
   "climate",
+  "air_quality",
   "security",
   "media_players",
   "maintenance",

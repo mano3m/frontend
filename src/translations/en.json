@@ -15,6 +15,7 @@
     "light": "Lights",
     "security": "Security",
     "climate": "Climate",
+    "air_quality": "Air quality",
     "home": "Overview",
     "maintenance": "Maintenance",
     "marketplace": "Marketplace",
@@ -232,6 +233,7 @@
       },
       "home-summary": {
         "all_lights_off": "All off",
+        "count_air_quality_sensors": "{count} {count, plural,\n one {sensor}\n other {sensors}\n}",
         "count_active_alerts": "{count} {count, plural,\n one {active alert}\n other {active alerts}\n}",
         "count_lights_on": "{count} {count, plural,\n one {on}\n other {on}\n}",
         "count_locks_unlocked": "{count} {count, plural,\n one {unlocked}\n other {unlocked}\n}",
@@ -10270,6 +10272,7 @@
           "home": {
             "summary_list": {
               "alerts": "Alerts",
+              "air_quality": "Air quality",
               "media_players": "Media players",
               "other_devices": "Other devices",
               "weather": "Weather",

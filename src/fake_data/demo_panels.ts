@@ -32,6 +32,14 @@ export const demoPanels: Panels = {
     config: null,
     url_path: "climate",
   },
+  "air-quality": {
+    component_name: "air_quality",
+    icon: "mdi:air-filter",
+    title: "air_quality",
+    default_visible: false,
+    config: null,
+    url_path: "air-quality",
+  },
   security: {
     component_name: "security",
     icon: "mdi:security",

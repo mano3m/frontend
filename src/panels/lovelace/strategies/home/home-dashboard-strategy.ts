@@ -77,6 +77,16 @@ export class HomeDashboardStrategy extends ReactiveElement {
       };
     });
 
+    const airQualityView = {
+      title: getSummaryLabel(hass.localize, "air_quality"),
+      path: "air-quality",
+      subview: true,
+      strategy: {
+        type: "air-quality",
+      },
+      icon: HOME_SUMMARIES_ICONS.air_quality,
+    } satisfies LovelaceViewRawConfig;
+
     const mediaPlayersView = {
       title: getSummaryLabel(hass.localize, "media_players"),
       path: "media-players",
@@ -114,6 +124,7 @@ export class HomeDashboardStrategy extends ReactiveElement {
           } satisfies HomeOverviewViewStrategyConfig,
         },
         ...areaViews,
+        airQualityView,
         mediaPlayersView,
         otherDevicesView,
       ],

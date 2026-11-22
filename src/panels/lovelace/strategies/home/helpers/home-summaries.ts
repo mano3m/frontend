@@ -1,5 +1,6 @@
 import type { EntityFilter } from "../../../../../common/entity/entity_filter";
 import type { LocalizeFunc } from "../../../../../common/translations/localize";
+import { airQualityEntityFilters } from "../../../../air-quality/strategies/air-quality-view-strategy";
 import { maintenanceEntityFilters } from "../../../../maintenance/strategies/maintenance-view-strategy";
 import { climateEntityFilters } from "../../../../climate/strategies/climate-view-strategy";
 import { lightEntityFilters } from "../../../../light/strategies/light-view-strategy";
@@ -9,6 +10,7 @@ export const HOME_SUMMARIES = [
   "alerts",
   "light",
   "climate",
+  "air_quality",
   "security",
   "media_players",
   "maintenance",
@@ -22,6 +24,7 @@ export const HOME_SUMMARIES_ICONS: Record<HomeSummary, string> = {
   alerts: "mdi:alarm-plus",
   light: "mdi:lamps",
   climate: "mdi:home-thermometer",
+  air_quality: "mdi:air-filter",
   security: "mdi:security",
   media_players: "mdi:multimedia",
   maintenance: "mdi:wrench",
@@ -33,6 +36,7 @@ export const HOME_SUMMARIES_COLORS: Record<HomeSummary, string> = {
   alerts: "red",
   light: "amber",
   climate: "deep-orange",
+  air_quality: "cyan",
   security: "blue-grey",
   media_players: "blue",
   maintenance: "grey",
@@ -44,6 +48,7 @@ export const HOME_SUMMARIES_FILTERS: Record<HomeSummary, EntityFilter[]> = {
   alerts: [],
   light: lightEntityFilters,
   climate: climateEntityFilters,
+  air_quality: airQualityEntityFilters,
   security: securityEntityFilters,
   media_players: [{ domain: "media_player", entity_category: "none" }],
   maintenance: maintenanceEntityFilters,
