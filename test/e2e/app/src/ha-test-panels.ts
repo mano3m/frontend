@@ -93,6 +93,14 @@ export const e2eTestPanels: Record<string, E2ETestPanelInfo> = {
     url_path: "climate",
     testSelector: "ha-panel-climate",
   },
+  "air-quality": {
+    component_name: "air_quality",
+    icon: "mdi:air-filter",
+    title: "air_quality",
+    config: null,
+    url_path: "air-quality",
+    testSelector: "ha-panel-air-quality",
+  },
   maintenance: {
     component_name: "maintenance",
     icon: "mdi:wrench-clock",

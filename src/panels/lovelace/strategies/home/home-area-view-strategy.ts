@@ -113,6 +113,7 @@ export class HomeAreaViewStrategy extends ReactiveElement {
     const {
       light,
       climate,
+      air_quality: airQuality,
       security,
       media_players: mediaPlayers,
     } = entitiesBySummary;
@@ -204,6 +205,24 @@ export class HomeAreaViewStrategy extends ReactiveElement {
               : undefined,
           } satisfies HeadingCardConfig,
           ...climate.map(computeTileCard),
+        ],
+      });
+    }
+
+    if (airQuality.length > 0) {
+      sections.push({
+        type: "grid",
+        cards: [
+          {
+            type: "heading",
+            heading: getSummaryLabel(hass.localize, "air_quality"),
+            icon: HOME_SUMMARIES_ICONS.air_quality,
+            tap_action: {
+              action: "navigate",
+              navigation_path: "air-quality?historyBack=1",
+            },
+          } satisfies HeadingCardConfig,
+          ...airQuality.map(computeTileCard),
         ],
       });
     }

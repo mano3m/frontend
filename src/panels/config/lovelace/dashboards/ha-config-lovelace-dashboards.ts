@@ -83,6 +83,7 @@ export const PANEL_DASHBOARDS = [
   "light",
   "security",
   "climate",
+  "air-quality",
   "energy",
   "maintenance",
 ] as string[];

@@ -225,6 +225,26 @@ export class HuiHomeSummaryCard extends LitElement implements LovelaceCard {
           ? `${formattedMinTemp}°`
           : `${formattedMinTemp} - ${formattedMaxTemp}°`;
       }
+      case "air_quality": {
+        const airQualityFilters = HOME_SUMMARIES_FILTERS.air_quality.map(
+          (filter) =>
+            generateEntityFilter(
+              states,
+              entities,
+              devices,
+              areas,
+              floors,
+              filter
+            )
+        );
+        const airQualityEntities = findEntities(allEntities, airQualityFilters);
+
+        return airQualityEntities.length
+          ? localize("ui.card.home-summary.count_air_quality_sensors", {
+              count: airQualityEntities.length,
+            })
+          : "";
+      }
       case "alerts": {
         const count = (this._config.alert_entities ?? []).filter(
           (alertEntity) => isSecurityAlertActive(states, alertEntity.entity)

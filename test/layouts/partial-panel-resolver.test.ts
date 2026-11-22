@@ -76,4 +76,12 @@ describe("partial-panel-resolver", () => {
       } as unknown as Panels).hacs
     ).not.toBe("marketplace");
   });
+
+  it("loads the air quality panel using its registered custom element name", () => {
+    expect(
+      routes({
+        "air-quality": panel("air_quality", "air-quality"),
+      } as unknown as Panels)["air-quality"]
+    ).toMatchObject({ tag: "ha-panel-air-quality" });
+  });
 });

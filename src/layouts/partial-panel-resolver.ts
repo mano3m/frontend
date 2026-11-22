@@ -59,6 +59,12 @@ const COMPONENTS = {
     waitForReady: true,
     readyTimeout: DASHBOARD_READY_TIMEOUT,
   },
+  air_quality: {
+    tag: "ha-panel-air-quality",
+    load: () => import("../panels/air-quality/ha-panel-air-quality"),
+    waitForReady: true,
+    readyTimeout: DASHBOARD_READY_TIMEOUT,
+  },
   security: {
     load: () => import("../panels/security/ha-panel-security"),
     waitForReady: true,
@@ -82,7 +88,10 @@ const COMPONENTS = {
   notfound: { load: () => import("../panels/notfound/ha-panel-notfound") },
 } satisfies Record<
   string,
-  Pick<RouteOptions, "load" | "waitForReady"> & { readyTimeout?: number }
+  Pick<RouteOptions, "load" | "waitForReady"> & {
+    readyTimeout?: number;
+    tag?: string;
+  }
 >;
 
 @customElement("partial-panel-resolver")

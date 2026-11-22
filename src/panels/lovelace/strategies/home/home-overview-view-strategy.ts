@@ -362,11 +362,24 @@ export class HomeOverviewViewStrategy extends ReactiveElement {
       )
     );
 
+    const airQualityFilters = HOME_SUMMARIES_FILTERS.air_quality.map((filter) =>
+      generateEntityFilter(
+        hass.states,
+        hass.entities,
+        hass.devices,
+        hass.areas,
+        hass.floors,
+        filter
+      )
+    );
+
     const hasLights =
       hass.panels.light && findEntities(allEntities, lightsFilters).length > 0;
     const hasMediaPlayers =
       findEntities(allEntities, mediaPlayerFilter).length > 0;
     const hasClimate = hass.panels.climate && hasClimateEntities(hass);
+    const hasAirQuality =
+      findEntities(allEntities, airQualityFilters).length > 0;
     const hasSecurity =
       hass.panels.security && findSecurityEntities(hass).length > 0;
     const hasMaintenance =
@@ -432,6 +445,17 @@ export class HomeOverviewViewStrategy extends ReactiveElement {
               tap_action: {
                 action: "navigate",
                 navigation_path: "/climate?historyBack=1",
+              },
+            } satisfies HomeSummaryCard)
+          : undefined,
+      air_quality: () =>
+        hasAirQuality
+          ? ({
+              type: "home-summary",
+              summary: "air_quality",
+              tap_action: {
+                action: "navigate",
+                navigation_path: "air-quality",
               },
             } satisfies HomeSummaryCard)
           : undefined,
